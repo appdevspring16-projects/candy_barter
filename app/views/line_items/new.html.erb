@@ -24,7 +24,7 @@
           Inventory
         </label>
 
-        <input type="text" id="inventory_id" name="inventory_id" placeholder="Inventory" class="form-control" value="<%= @line_item.inventory_id %>">
+        <%= select_tag(:inventory_id, options_from_collection_for_select(Inventory.all, :id, :user_id, @line_item.inventory_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for proposed_trade_id -->
