@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @inventory.errors.any? %>
+  <% @inventory.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Inventory</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_inventory" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @inventory.user_id %>">
+      </div>
+
+      <!-- Label and input for item_id -->
+      <div class="form-group">
+        <label for="item_id" class="control-label">
+          Item
+        </label>
+
+        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @inventory.item_id %>">
+      </div>
+
+      <!-- Label and input for quantity -->
+      <div class="form-group">
+        <label for="quantity" class="control-label">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @inventory.quantity %>">
+      </div>
+
+      <!-- Label and input for condition -->
+      <div class="form-group">
+        <label for="condition" class="control-label">
+          Condition
+        </label>
+
+        <input type="text" id="condition" name="condition" placeholder="Condition" class="form-control" value="<%= @inventory.condition %>">
+      </div>
+
+      <!-- Label and input for visible_to_public -->
+      <div class="checkbox">
+        <label for="visible_to_public">
+          <input type="checkbox" id="visible_to_public" name="visible_to_public" value="1" <%= "checked" if @inventory.visible_to_public %>>
+          Visible to public
+        </label>
+      </div>
+
+      <!-- Label and input for proposed_trade_id -->
+      <div class="form-group">
+        <label for="proposed_trade_id" class="control-label">
+          Proposed trade
+        </label>
+
+        <input type="text" id="proposed_trade_id" name="proposed_trade_id" placeholder="Proposed trade" class="form-control" value="<%= @inventory.proposed_trade_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Inventory
+      </button>
+      or
+      <a href="/inventories">Cancel</a>
+    </form>
+  </div>
+</div>
