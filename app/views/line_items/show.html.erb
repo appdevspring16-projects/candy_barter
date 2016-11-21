@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Line Item #<%= @line_item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Inventory</dt>
+      <dd><%= @line_item.inventory_id %></dd>
+
+      <dt>Proposed trade</dt>
+      <dd><%= @line_item.proposed_trade_id %></dd>
+
+      <dt>Quantity</dt>
+      <dd><%= @line_item.quantity %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/line_items" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/line_items/<%= @line_item.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_line_item/<%= @line_item.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
