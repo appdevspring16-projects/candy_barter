@@ -68,7 +68,7 @@
           Proposed trade
         </label>
 
-        <input type="text" id="proposed_trade_id" name="proposed_trade_id" placeholder="Proposed trade" class="form-control" value="<%= @inventory.proposed_trade_id %>">
+        <%= select_tag(:proposed_trade_id, options_from_collection_for_select(ProposedTrade.all, :id, :status, @inventory.proposed_trade_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
