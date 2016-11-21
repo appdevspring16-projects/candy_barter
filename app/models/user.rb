@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sent_proposals,
+             :class_name => "ProposedTrade",
+             :foreign_key => "proposer_id",
+             :dependent => :destroy
+
   has_many   :inventories,
              :dependent => :destroy
 
