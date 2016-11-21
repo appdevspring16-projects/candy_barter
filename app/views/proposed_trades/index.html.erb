@@ -22,7 +22,7 @@
         <td><%= proposed_trade.status %></td>
         <td><%= proposed_trade.publicly_visible_if_accepted %></td>
         <td><%= proposed_trade.star_rating %></td>
-        <td><%= proposed_trade.proposer_id %></td>
+        <td><%= proposed_trade.proposer.email %></td>
         <td><%= proposed_trade.recipient_id %></td>
         <td>
           <a href="/proposed_trades/<%= proposed_trade.id %>" class="btn btn-primary">Show</a>
