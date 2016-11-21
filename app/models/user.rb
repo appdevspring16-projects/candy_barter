@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :comments
+
   has_many   :received_proposals,
              :class_name => "ProposedTrade",
              :foreign_key => "recipient_id",
