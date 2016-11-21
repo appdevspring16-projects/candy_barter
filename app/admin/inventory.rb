@@ -1,5 +1,7 @@
 ActiveAdmin.register Inventory do
 
+ permit_params :user_id, :item_id, :quantity, :condition, :visible_to_public, :proposed_trade_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
