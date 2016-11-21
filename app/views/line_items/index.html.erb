@@ -17,7 +17,7 @@
 
       <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.inventory_id %></td>
+        <td><%= line_item.inventory.user_id %></td>
         <td><%= line_item.proposed_trade_id %></td>
         <td><%= line_item.quantity %></td>
         <td>
