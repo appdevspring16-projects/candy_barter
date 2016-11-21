@@ -44,14 +44,8 @@
         <input type="text" id="star_rating" name="star_rating" placeholder="Star rating" class="form-control" value="<%= @proposed_trade.star_rating %>">
       </div>
 
-      <!-- Label and input for proposer_id -->
-      <div class="form-group">
-        <label for="proposer_id" class="control-label">
-          Proposer
-        </label>
-
-        <%= select_tag(:proposer_id, options_from_collection_for_select(User.all, :id, :email, @proposed_trade.proposer_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for recipient_id -->
       <div class="form-group">
