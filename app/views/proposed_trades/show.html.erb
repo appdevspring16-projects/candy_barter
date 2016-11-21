@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Proposed Trade #<%= @proposed_trade.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Status</dt>
+      <dd><%= @proposed_trade.status %></dd>
+
+      <dt>Publicly visible if accepted</dt>
+      <dd><%= @proposed_trade.publicly_visible_if_accepted %></dd>
+
+      <dt>Star rating</dt>
+      <dd><%= @proposed_trade.star_rating %></dd>
+
+      <dt>Proposer</dt>
+      <dd><%= @proposed_trade.proposer_id %></dd>
+
+      <dt>Recipient</dt>
+      <dd><%= @proposed_trade.recipient_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/proposed_trades" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/proposed_trades/<%= @proposed_trade.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_proposed_trade/<%= @proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

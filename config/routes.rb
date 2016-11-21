@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Proposed_trade resource:
+  # CREATE
+  get "/proposed_trades/new", :controller => "proposed_trades", :action => "new"
+  post "/create_proposed_trade", :controller => "proposed_trades", :action => "create"
+
+  # READ
+  get "/proposed_trades", :controller => "proposed_trades", :action => "index"
+  get "/proposed_trades/:id", :controller => "proposed_trades", :action => "show"
+
+  # UPDATE
+  get "/proposed_trades/:id/edit", :controller => "proposed_trades", :action => "edit"
+  post "/update_proposed_trade/:id", :controller => "proposed_trades", :action => "update"
+
+  # DELETE
+  get "/delete_proposed_trade/:id", :controller => "proposed_trades", :action => "destroy"
+  #------------------------------
+
   # Routes for the Inventory resource:
   # CREATE
   get "/inventories/new", :controller => "inventories", :action => "new"
