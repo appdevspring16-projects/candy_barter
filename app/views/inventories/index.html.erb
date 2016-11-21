@@ -20,7 +20,7 @@
 
       <% @inventories.each do |inventory| %>
       <tr>
-        <td><%= inventory.user_id %></td>
+        <td><%= inventory.user.email %></td>
         <td><%= inventory.item_id %></td>
         <td><%= inventory.quantity %></td>
         <td><%= inventory.condition %></td>
