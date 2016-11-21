@@ -1,4 +1,14 @@
 class ProposedTradesController < ApplicationController
+  before_action :current_user_must_be_proposed_trade_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_proposed_trade_user
+    proposed_trade = ProposedTrade.find(params[:id])
+
+    unless current_user == proposed_trade.proposer
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @proposed_trades = ProposedTrade.all
 

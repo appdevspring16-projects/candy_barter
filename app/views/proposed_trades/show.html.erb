@@ -26,12 +26,14 @@
       <a href="/proposed_trades" class="btn btn-primary">
         Back
       </a>
-      <a href="/proposed_trades/<%= @proposed_trade.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_proposed_trade/<%= @proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @proposed_trade.proposer %>
+        <a href="/proposed_trades/<%= @proposed_trade.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_proposed_trade/<%= @proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
