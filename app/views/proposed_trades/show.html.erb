@@ -65,6 +65,64 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_inventory" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for item_id -->
+      <div class="form-group">
+        <label for="item_id" class="control-label">
+          Item
+        </label>
+
+        <%= select_tag(:item_id, options_from_collection_for_select(Item.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for quantity -->
+      <div class="form-group">
+        <label for="quantity" class="control-label">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for condition -->
+      <div class="form-group">
+        <label for="condition" class="control-label">
+          Condition
+        </label>
+
+        <input type="text" id="condition" name="condition" placeholder="Condition" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for visible_to_public -->
+      <div class="checkbox">
+        <label for="visible_to_public">
+          <input type="checkbox" id="visible_to_public" name="visible_to_public" value="1" <%= "checked" if @inventory.visible_to_public %>>
+          Visible to public
+        </label>
+      </div>
+
+      <!-- Label and input for proposed_trade_id -->
+      <div class="form-group">
+        <label for="proposed_trade_id" class="control-label">
+          Proposed trade
+        </label>
+
+        <%= select_tag(:proposed_trade_id, options_from_collection_for_select(ProposedTrade.all, :id, :status), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Inventory
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -96,6 +154,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_line_item" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for inventory_id -->
+      <div class="form-group">
+        <label for="inventory_id" class="control-label">
+          Inventory
+        </label>
+
+        <%= select_tag(:inventory_id, options_from_collection_for_select(Inventory.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for proposed_trade_id -->
+      <div class="form-group">
+        <label for="proposed_trade_id" class="control-label">
+          Proposed trade
+        </label>
+
+        <%= select_tag(:proposed_trade_id, options_from_collection_for_select(ProposedTrade.all, :id, :status), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for quantity -->
+      <div class="form-group">
+        <label for="quantity" class="control-label">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Line Item
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -127,6 +223,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for proposed_trade_id -->
+      <div class="form-group">
+        <label for="proposed_trade_id" class="control-label">
+          Proposed trade
+        </label>
+
+        <%= select_tag(:proposed_trade_id, options_from_collection_for_select(ProposedTrade.all, :id, :status), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

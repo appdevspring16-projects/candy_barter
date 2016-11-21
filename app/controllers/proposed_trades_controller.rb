@@ -16,6 +16,9 @@ class ProposedTradesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @line_item = LineItem.new
+    @inventory = Inventory.new
     @proposed_trade = ProposedTrade.find(params[:id])
 
     render("proposed_trades/show.html.erb")

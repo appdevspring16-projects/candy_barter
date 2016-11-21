@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @inventory = Inventory.new
     @item = Item.find(params[:id])
 
     render("items/show.html.erb")
