@@ -48,12 +48,14 @@
             <a href="/memberships/<%= membership.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/memberships/<%= membership.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_membership/<%= membership.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == membership.user %>
+              <a href="/memberships/<%= membership.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_membership/<%= membership.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>
@@ -79,12 +81,14 @@
             <a href="/inventories/<%= inventory.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/inventories/<%= inventory.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_inventory/<%= inventory.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == inventory.user %>
+              <a href="/inventories/<%= inventory.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_inventory/<%= inventory.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>
@@ -110,12 +114,14 @@
             <a href="/proposed_trades/<%= proposed_trade.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/proposed_trades/<%= proposed_trade.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_proposed_trade/<%= proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == proposed_trade.recipient %>
+              <a href="/proposed_trades/<%= proposed_trade.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_proposed_trade/<%= proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>
@@ -141,12 +147,14 @@
             <a href="/proposed_trades/<%= proposed_trade.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/proposed_trades/<%= proposed_trade.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_proposed_trade/<%= proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == proposed_trade.recipient %>
+              <a href="/proposed_trades/<%= proposed_trade.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_proposed_trade/<%= proposed_trade.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>
@@ -172,12 +180,14 @@
             <a href="/comments/<%= comment.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == comment.user %>
+              <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>
