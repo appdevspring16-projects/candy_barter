@@ -50,7 +50,7 @@
           Proposer
         </label>
 
-        <input type="text" id="proposer_id" name="proposer_id" placeholder="Proposer" class="form-control" value="<%= @proposed_trade.proposer_id %>">
+        <%= select_tag(:proposer_id, options_from_collection_for_select(User.all, :id, :email, @proposed_trade.proposer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for recipient_id -->
