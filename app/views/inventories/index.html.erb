@@ -25,7 +25,7 @@
         <td><%= inventory.quantity %></td>
         <td><%= inventory.condition %></td>
         <td><%= inventory.visible_to_public %></td>
-        <td><%= inventory.proposed_trade_id %></td>
+        <td><%= inventory.proposed_trade.status %></td>
         <td>
           <a href="/inventories/<%= inventory.id %>" class="btn btn-primary">Show</a>
           <a href="/inventories/<%= inventory.id %>/edit" class="btn btn-warning">Edit</a>
