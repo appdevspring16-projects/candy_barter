@@ -1,6 +1,8 @@
 class Inventory < ApplicationRecord
   # Direct associations
 
+  belongs_to :proposed_trade
+
   has_many   :line_items,
              :dependent => :destroy
 
