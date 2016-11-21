@@ -21,7 +21,7 @@
       <% @inventories.each do |inventory| %>
       <tr>
         <td><%= inventory.user.email %></td>
-        <td><%= inventory.item_id %></td>
+        <td><%= inventory.item.name %></td>
         <td><%= inventory.quantity %></td>
         <td><%= inventory.condition %></td>
         <td><%= inventory.visible_to_public %></td>
