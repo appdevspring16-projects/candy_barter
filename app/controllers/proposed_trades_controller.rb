@@ -10,7 +10,7 @@ class ProposedTradesController < ApplicationController
   end
 
   def index
-    @proposed_trades = ProposedTrade.all
+    @proposed_trades = current_user.sent_proposals.page(params[:page]).per(10)
 
     render("proposed_trades/index.html.erb")
   end
