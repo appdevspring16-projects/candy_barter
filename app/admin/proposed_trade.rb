@@ -1,5 +1,7 @@
 ActiveAdmin.register ProposedTrade do
 
+ permit_params :status, :publicly_visible_if_accepted, :star_rating, :proposer_id, :recipient_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
