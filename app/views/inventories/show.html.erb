@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @inventory.user_id %></dd>
+      <dd>
+        <% if @inventory.user.present? %>
+          <a href="/users/<%= @inventory.user_id %>">
+            <%= @inventory.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Item</dt>
-      <dd><%= @inventory.item_id %></dd>
+      <dd>
+        <% if @inventory.item.present? %>
+          <a href="/items/<%= @inventory.item_id %>">
+            <%= @inventory.item.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Quantity</dt>
       <dd><%= @inventory.quantity %></dd>
@@ -21,7 +33,13 @@
       <dd><%= @inventory.visible_to_public %></dd>
 
       <dt>Proposed trade</dt>
-      <dd><%= @inventory.proposed_trade_id %></dd>
+      <dd>
+        <% if @inventory.proposed_trade.present? %>
+          <a href="/proposed_trades/<%= @inventory.proposed_trade_id %>">
+            <%= @inventory.proposed_trade.status %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

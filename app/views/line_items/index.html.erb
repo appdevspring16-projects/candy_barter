@@ -17,8 +17,20 @@
 
       <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.inventory.user_id %></td>
-        <td><%= line_item.proposed_trade.status %></td>
+        <td>
+          <% if line_item.inventory.present? %>
+            <a href="/inventories/<%= line_item.inventory.id %>">
+              <%= line_item.inventory.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if line_item.proposed_trade.present? %>
+            <a href="/proposed_trades/<%= line_item.proposed_trade.id %>">
+              <%= line_item.proposed_trade.status %>
+            </a>
+          <% end %>
+        </td>
         <td><%= line_item.quantity %></td>
         <td>
           <a href="/line_items/<%= line_item.id %>" class="btn btn-primary">Show</a>

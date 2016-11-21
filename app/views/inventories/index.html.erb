@@ -20,12 +20,30 @@
 
       <% @inventories.each do |inventory| %>
       <tr>
-        <td><%= inventory.user.email %></td>
-        <td><%= inventory.item.name %></td>
+        <td>
+          <% if inventory.user.present? %>
+            <a href="/users/<%= inventory.user.id %>">
+              <%= inventory.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if inventory.item.present? %>
+            <a href="/items/<%= inventory.item.id %>">
+              <%= inventory.item.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= inventory.quantity %></td>
         <td><%= inventory.condition %></td>
         <td><%= inventory.visible_to_public %></td>
-        <td><%= inventory.proposed_trade.status %></td>
+        <td>
+          <% if inventory.proposed_trade.present? %>
+            <a href="/proposed_trades/<%= inventory.proposed_trade.id %>">
+              <%= inventory.proposed_trade.status %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/inventories/<%= inventory.id %>" class="btn btn-primary">Show</a>
           

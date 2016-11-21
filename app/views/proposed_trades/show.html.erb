@@ -15,10 +15,22 @@
       <dd><%= @proposed_trade.star_rating %></dd>
 
       <dt>Proposer</dt>
-      <dd><%= @proposed_trade.proposer_id %></dd>
+      <dd>
+        <% if @proposed_trade.proposer.present? %>
+          <a href="/users/<%= @proposed_trade.proposer_id %>">
+            <%= @proposed_trade.proposer.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Recipient</dt>
-      <dd><%= @proposed_trade.recipient_id %></dd>
+      <dd>
+        <% if @proposed_trade.recipient.present? %>
+          <a href="/users/<%= @proposed_trade.recipient_id %>">
+            <%= @proposed_trade.recipient.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

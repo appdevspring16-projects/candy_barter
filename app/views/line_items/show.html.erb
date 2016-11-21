@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Inventory</dt>
-      <dd><%= @line_item.inventory_id %></dd>
+      <dd>
+        <% if @line_item.inventory.present? %>
+          <a href="/inventories/<%= @line_item.inventory_id %>">
+            <%= @line_item.inventory.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Proposed trade</dt>
-      <dd><%= @line_item.proposed_trade_id %></dd>
+      <dd>
+        <% if @line_item.proposed_trade.present? %>
+          <a href="/proposed_trades/<%= @line_item.proposed_trade_id %>">
+            <%= @line_item.proposed_trade.status %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Quantity</dt>
       <dd><%= @line_item.quantity %></dd>
